@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main ]
 
-  permissions:
+permissions:
   id-token: write    # 👈 Needed for Azure OIDC login
   contents: read     # 👈 Required for checkout
 
