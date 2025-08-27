@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+  permissions:
+  id-token: write    # 👈 Needed for Azure OIDC login
+  contents: read     # 👈 Required for checkout
+
 jobs:
   compile:
     runs-on: ubuntu-latest
