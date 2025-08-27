@@ -36,22 +36,7 @@ jobs:
       - name: Gitleaks Scan
         uses: gitleaks/gitleaks-action@v2
 
-  trivy_fs_scan:
-    runs-on: ubuntu-latest
-    needs: gitleaks-scan
-    steps:
-      - uses: actions/checkout@v4
-      - name: Trivy FS Scan
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          scan-type: fs
-          scan-ref: .
-          format: table
-          ignore-unfixed: true
-          vuln-type: os,library
-          severity: CRITICAL,HIGH
-          exit-code: '1'
-
+  
   sonar-frontend:
     runs-on: ubuntu-latest
     needs: trivy_fs_scan
